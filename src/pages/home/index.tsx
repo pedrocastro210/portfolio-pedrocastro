@@ -47,7 +47,7 @@ export const Home = (): JSX.Element => {
               <Text color="grey4">Hello, my name is {userData.nameUser}</Text>
             </Flex>
             <Text as="h1" type="heading1" color="grey5">
-            I{" "}
+              I{" "}
               <Text as="span" type="heading1" color="brand1">
                 love
               </Text>{" "}
@@ -58,8 +58,8 @@ export const Home = (): JSX.Element => {
               projects
             </Text>
             <Text type="body1" color="grey2">
-              Discover here in this environment, created especially for you, all
-              my projects and technologies
+              Conheça aqui neste ambiente, criado especialmente para você, todos
+              os meus projetos e tecnologias
             </Text>
             <HeaderButtonsArea>
               <Button as="a" type="primary" href="#projects">

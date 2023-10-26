@@ -24,7 +24,7 @@ export const Footer = (): JSX.Element => {
               Thank you! {/* <HandEffect /> */}
             </Text>
             <Text type="body1" color="grey2">
-              Follow me on my social networks and let's talk
+              Me siga nas minhas redes sociais e vamos conversar
             </Text>
           </Box>
         </Flex>
