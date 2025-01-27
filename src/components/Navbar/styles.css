@@ -1,0 +1,46 @@
+.btn {
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--fonts-texts);
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: var(--colors-grey4);
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    height: 2px;
+    width: 0;
+    background-color: var(--colors-brand1);
+    transition: 0.5s ease;
+}
+
+.btn:hover::before {
+    width: 90%;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    height: 0;
+    width: 90%;
+    background-color: var(--colors-brand1);
+    transition: 0.4s ease;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.btn:hover::after {
+    height: 80%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+}
