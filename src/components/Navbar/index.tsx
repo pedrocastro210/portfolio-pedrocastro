@@ -9,6 +9,7 @@ import {
   NavbarLinks,
   NavbarMobileArea,
 } from "./style";
+import "./styles.css"
 
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
@@ -60,18 +61,18 @@ export const NavBar = (): JSX.Element => {
 export const NavLinks = (): JSX.Element => {
   return (
     <NavbarLinks>
-      <Button type="btLink" as="a" color="grey4" href={`#home`}>
+      <a className="btn" href={`#home`}>
         Home
-      </Button>
-      <Button type="btLink" as="a" color="grey4" href={`#projects`}>
+      </a>
+      <a className="btn" href={`#projects`}>
         Projects
-      </Button>
-      <Button type="btLink" as="a" color="grey4" href={`#contact`}>
+      </a>
+      <a className="btn" href={`#contact`}>
         Contact
-      </Button>
-      <Button type="btLink" as="a" color="grey4" href={`#social-media`}>
+      </a>
+      <a className="btn" href={`#social-media`}>
         Social Media
-      </Button>
+      </a>
     </NavbarLinks>
   );
 };
