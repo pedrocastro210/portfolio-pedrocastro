@@ -26,6 +26,7 @@ import {
   ProjectAreaWrapperColumns,
   ProjectsAreaContent,
 } from "./style";
+import Particles from "@/components/Particles";
 
 export const Home = (): JSX.Element => {
   const gihubUrl = `https://github.com/${userData.githubUser}`;
@@ -88,7 +89,17 @@ export const Home = (): JSX.Element => {
         </Container>
       </Header>
       <ProjectsArea id="projects">
-        <Container>
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={150}
+          particleSpread={8}
+          speed={0.05}
+          particleBaseSize={80}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+        <Container style={{ position: 'relative', zIndex: 2, width: '100%' }}>
           <ProjectAreaWrapperColumns>
             <ProjectsAreaSocialMediaMessage>
               <Text as="h2" type="heading4" color="grey4">
@@ -106,7 +117,9 @@ export const Home = (): JSX.Element => {
             </ProjectsAreaContent>
           </ProjectAreaWrapperColumns>
         </Container>
+
       </ProjectsArea>
+
       <Contacts />
     </main>
   );

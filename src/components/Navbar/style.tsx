@@ -44,7 +44,7 @@ export const NavbarLinks = styled(Flex, {
     "& a": {
       width: "100%",
       justifyContent: "flex-start",
-      paddingLeft: 0,
+      // paddingLeft: 0,
     },
   },
 });

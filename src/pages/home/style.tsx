@@ -102,11 +102,18 @@ export const StackCards = styled("div", {
 });
 
 export const ProjectsArea = styled("section", {
+  position: "relative",
   padding: "$section 0",
   backgroundColor: "$grey0",
   backgroundImage: `url(${dots})`,
   backgroundRepeat: "no-repeat",
   backgroundPosition: "left top 11rem",
+  overflow: "hidden",
+  minHeight: "100vh",
+  width: "100%",
+  boxSizing: "border-box",
+  display: "flex",
+  flexDirection: "column",
   "@tablet": {
     backgroundPosition: "right top 8rem",
     padding: "$sectionMobile 0",
