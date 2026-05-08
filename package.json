@@ -1,7 +1,11 @@
 {
-  "name": "kenzie-portfolio-2",
+  "name": "portfolio-pedrocastro",
+  "description": "Portfólio profissional de Pedro Castro, apresentando habilidades e projetos com design premium.",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
