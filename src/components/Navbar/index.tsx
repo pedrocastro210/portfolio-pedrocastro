@@ -15,6 +15,7 @@ import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { Button } from "@/styles/Buttons";
 import { Container, Flex } from "@/styles/Global";
+import { motion } from "framer-motion";
 
 export interface MenuButtonOpen {
   open: Boolean;
@@ -35,25 +36,32 @@ export const NavBar = (): JSX.Element => {
 
   return (
     <NavbarWrapper>
-      <Container>
-        <NavbarMobileArea>
-          <LogoTipo>
-            <LogoTipoText>{userData.nameUser}</LogoTipoText>
-          </LogoTipo>
-          {isWide && (
-            <Button
-              type="icon"
-              onClick={OpenMenu}
-              aria-label={!open ? "Abrir Menu" : "Fechar Menu"}
-            >
-              {!open ? <FaBars /> : <IoClose />}
-            </Button>
-          )}
-        </NavbarMobileArea>
-        <Flex>
-          {isWide ? open && <NavLinks /> : <NavLinks />}
-        </Flex>
-      </Container>
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        style={{ width: "100%" }}
+      >
+        <Container>
+          <NavbarMobileArea>
+            <LogoTipo>
+              <LogoTipoText>{userData.nameUser}</LogoTipoText>
+            </LogoTipo>
+            {isWide && (
+              <Button
+                type="icon"
+                onClick={OpenMenu}
+                aria-label={!open ? "Abrir Menu" : "Fechar Menu"}
+              >
+                {!open ? <FaBars /> : <IoClose />}
+              </Button>
+            )}
+          </NavbarMobileArea>
+          <Flex>
+            {isWide ? open && <NavLinks /> : <NavLinks />}
+          </Flex>
+        </Container>
+      </motion.div>
     </NavbarWrapper>
   );
 };

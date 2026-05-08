@@ -51,60 +51,90 @@ export const Home = (): JSX.Element => {
                   width={"48px"}
                   height={"48px"}
                 /> */}
-                <Text
-                  color="grey4"
-                  css={{
-                    fontFamily: "Caveat, cursive",
-                    fontSize: "1.5rem",
-                  }}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  Hello, my name is {userData.nameUser}
-                </Text>
+                  <Text
+                    color="grey4"
+                    css={{
+                      fontFamily: "Caveat, cursive",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    Hello, my name is {userData.nameUser}
+                  </Text>
+                </motion.div>
               </Flex>
-              <Text as="h1" type="heading1" color="grey5">
-                I{" "}
-                <Text as="span" type="heading1" color="brand1">
-                  love
-                </Text>{" "}
-                creating and{" "}
-                <Text as="span" type="heading1" color="brand1">
-                  developing
-                </Text>{" "}
-                projects
-              </Text>
-              <Text type="body1" color="grey2" css={{ fontFamily: "Quicksand, sans-serif" }}>
-                Discover here in this environment, created especially for you, all
-                my projects and technologies
-              </Text>
-              <HeaderButtonsArea>
-                <Button as="a" type="primary" href="#projects">
-                  See Projects
-                </Button>
-                <Button as="a" type="outline" target="_blank" href={portfolioUrl}>
-                  See my portfolio source code
-                </Button>
-                <Button
-                  color="grey5"
-                  as="a"
-                  css={{ "&:hover": { color: "$grey1" } }}
-                  type="circle"
-                  target="_blank"
-                  href={gihubUrl}
-                >
-                  <FaGithub />
-                </Button>
-              </HeaderButtonsArea>
-              <StackCards>
-                <StackCardsContent>
-                  {stackData.map((stack, index) => (
-                    <Stack key={index} title={stack.title} icon={stack.img} />
-                  ))}
-                  {/* Duplicated items for seamless loop */}
-                  {stackData.map((stack, index) => (
-                    <Stack key={stackData.length + index} title={stack.title} icon={stack.img} />
-                  ))}
-                </StackCardsContent>
-              </StackCards>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Text as="h1" type="heading1" color="grey5">
+                  I{" "}
+                  <Text as="span" type="heading1" color="brand1">
+                    love
+                  </Text>{" "}
+                  creating and{" "}
+                  <Text as="span" type="heading1" color="brand1">
+                    developing
+                  </Text>{" "}
+                  projects
+                </Text>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <Text type="body1" color="grey2" css={{ fontFamily: "Quicksand, sans-serif" }}>
+                  Discover here in this environment, created especially for you, all
+                  my projects and technologies
+                </Text>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <HeaderButtonsArea>
+                  <Button as="a" type="primary" href="#projects">
+                    See Projects
+                  </Button>
+                  <Button as="a" type="outline" target="_blank" href={portfolioUrl}>
+                    See my portfolio source code
+                  </Button>
+                  <Button
+                    color="grey5"
+                    as="a"
+                    css={{ "&:hover": { color: "$grey1" } }}
+                    type="circle"
+                    target="_blank"
+                    href={gihubUrl}
+                  >
+                    <FaGithub />
+                  </Button>
+                </HeaderButtonsArea>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+              >
+                <StackCards>
+                  <StackCardsContent>
+                    {stackData.map((stack, index) => (
+                      <Stack key={index} title={stack.title} icon={stack.img} />
+                    ))}
+                    {/* Duplicated items for seamless loop */}
+                    {stackData.map((stack, index) => (
+                      <Stack key={stackData.length + index} title={stack.title} icon={stack.img} />
+                    ))}
+                  </StackCardsContent>
+                </StackCards>
+              </motion.div>
             </HeaderText>
 
             <HeaderImageArea>
@@ -136,17 +166,24 @@ export const Home = (): JSX.Element => {
         />
         <Container style={{ position: 'relative', zIndex: 2, width: '100%' }}>
           <ProjectAreaWrapperColumns>
-            <ProjectsAreaSocialMediaMessage>
-              <Text as="h2" type="heading4" color="grey4">
-                My projects
-              </Text>
-              <Text as="p" type="body1" color="grey2">
-                Some of my{" "}
-                <Text as="span" color="brand5">
-                  side projects
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <ProjectsAreaSocialMediaMessage>
+                <Text as="h2" type="heading4" color="grey4">
+                  My projects
                 </Text>
-              </Text>
-            </ProjectsAreaSocialMediaMessage>
+                <Text as="p" type="body1" color="grey2">
+                  Some of my{" "}
+                  <Text as="span" color="brand5">
+                    side projects
+                  </Text>
+                </Text>
+              </ProjectsAreaSocialMediaMessage>
+            </motion.div>
             <ProjectsAreaContent>
               <Project />
             </ProjectsAreaContent>
