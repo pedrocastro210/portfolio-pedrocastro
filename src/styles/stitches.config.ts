@@ -1,6 +1,6 @@
 import { createStitches } from "@stitches/react";
 
-export const { styled } = createStitches({
+export const { styled, css, keyframes, theme, createTheme, config } = createStitches({
   media: {
     mobileLittle: "(max-width: 400px)",
     mobile: "(max-width: 991px)",

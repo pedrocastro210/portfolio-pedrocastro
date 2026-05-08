@@ -14,19 +14,24 @@ import { userData } from "@/utils/userData";
 
 import { FaGithub } from "react-icons/fa";
 
-// Page Style
 import {
   Header,
   HeaderContent,
+  HeaderText,
   HeaderButtonsArea,
+  HeaderImageArea,
+  UserImageHero,
   UserImage,
   StackCards,
+  StackCardsContent,
   ProjectsArea,
   ProjectsAreaSocialMediaMessage,
   ProjectAreaWrapperColumns,
   ProjectsAreaContent,
 } from "./style";
 import Particles from "@/components/Particles";
+import { motion } from "framer-motion";
+import pedroBanner from "@/public/static/img/logo/pedro_banner.png";
 
 export const Home = (): JSX.Element => {
   const gihubUrl = `https://github.com/${userData.githubUser}`;
@@ -37,65 +42,95 @@ export const Home = (): JSX.Element => {
       <Header>
         <Container>
           <HeaderContent>
-            <Flex>
-              <UserImage
-                src={`https://github.com/${userData.githubUser}.png`}
-                alt={userData.nameUser}
-                title={userData.nameUser}
-                width={"48px"}
-                height={"48px"}
-              />
-              <Text color="grey4">Hello, my name is {userData.nameUser}</Text>
-            </Flex>
-            <Text as="h1" type="heading1" color="grey5">
-              I{" "}
-              <Text as="span" type="heading1" color="brand1">
-                love
-              </Text>{" "}
-              creating and{" "}
-              <Text as="span" type="heading1" color="brand1">
-                developing
-              </Text>{" "}
-              projects
-            </Text>
-            <Text type="body1" color="grey2">
-              Discover here in this environment, created especially for you, all
-              my projects and technologies
-            </Text>
-            <HeaderButtonsArea>
-              <Button as="a" type="primary" href="#projects">
-                See Projects
-              </Button>
-              <Button as="a" type="outline" target="_blank" href={portfolioUrl}>
-                See my portfolio source code
-              </Button>
-              <Button
-                color="grey5"
-                as="a"
-                css={{ "&:hover": { color: "$grey1" } }}
-                type="circle"
-                target="_blank"
-                href={gihubUrl}
+            <HeaderText>
+              <Flex>
+                {/* <UserImage
+                  src={`https://github.com/${userData.githubUser}.png`}
+                  alt={userData.nameUser}
+                  title={userData.nameUser}
+                  width={"48px"}
+                  height={"48px"}
+                /> */}
+                <Text
+                  color="grey4"
+                  css={{
+                    fontFamily: "Caveat, cursive",
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  Hello, my name is {userData.nameUser}
+                </Text>
+              </Flex>
+              <Text as="h1" type="heading1" color="grey5">
+                I{" "}
+                <Text as="span" type="heading1" color="brand1">
+                  love
+                </Text>{" "}
+                creating and{" "}
+                <Text as="span" type="heading1" color="brand1">
+                  developing
+                </Text>{" "}
+                projects
+              </Text>
+              <Text type="body1" color="grey2" css={{ fontFamily: "Quicksand, sans-serif" }}>
+                Discover here in this environment, created especially for you, all
+                my projects and technologies
+              </Text>
+              <HeaderButtonsArea>
+                <Button as="a" type="primary" href="#projects">
+                  See Projects
+                </Button>
+                <Button as="a" type="outline" target="_blank" href={portfolioUrl}>
+                  See my portfolio source code
+                </Button>
+                <Button
+                  color="grey5"
+                  as="a"
+                  css={{ "&:hover": { color: "$grey1" } }}
+                  type="circle"
+                  target="_blank"
+                  href={gihubUrl}
+                >
+                  <FaGithub />
+                </Button>
+              </HeaderButtonsArea>
+              <StackCards>
+                <StackCardsContent>
+                  {stackData.map((stack, index) => (
+                    <Stack key={index} title={stack.title} icon={stack.img} />
+                  ))}
+                  {/* Duplicated items for seamless loop */}
+                  {stackData.map((stack, index) => (
+                    <Stack key={stackData.length + index} title={stack.title} icon={stack.img} />
+                  ))}
+                </StackCardsContent>
+              </StackCards>
+            </HeaderText>
+
+            <HeaderImageArea>
+              <motion.div
+                initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <FaGithub />
-              </Button>
-            </HeaderButtonsArea>
-            <StackCards>
-              {stackData.map((stack, index) => (
-                <Stack key={index} title={stack.title} icon={stack.img} />
-              ))}
-            </StackCards>
+                <UserImageHero
+                  src={pedroBanner}
+                  alt={userData.nameUser}
+                  title={userData.nameUser}
+                />
+              </motion.div>
+            </HeaderImageArea>
           </HeaderContent>
         </Container>
       </Header>
       <ProjectsArea id="projects">
         <Particles
           particleColors={['#ffffff', '#ffffff']}
-          particleCount={150}
+          particleCount={800}
           particleSpread={8}
-          speed={0.05}
+          speed={0.1}
           particleBaseSize={80}
-          moveParticlesOnHover={true}
+          moveParticlesOnHover={false}
           alphaParticles={false}
           disableRotation={false}
         />

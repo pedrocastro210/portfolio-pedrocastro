@@ -8,7 +8,8 @@ import {
   FaJs,
   FaNode,
   FaReact,
-  FaLinux
+  FaLinux,
+  FaAws,
 } from "react-icons/fa";
 
 export const stackData = [
@@ -40,4 +41,5 @@ export const stackData = [
   { title: "Git", img: FaGit },
   { title: "Python", img: FaPython },
   { title: "Redux", img: SiRedux },
+  { title: "AWS", img: FaAws },
 ];

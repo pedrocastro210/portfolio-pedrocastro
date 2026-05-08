@@ -9,7 +9,7 @@ import SplashCursor from "./components/mouseEffect";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <GlobalStyle>
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       <NavBar />
       <Home />
       <Footer />

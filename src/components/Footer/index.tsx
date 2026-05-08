@@ -5,6 +5,7 @@ import { UserImage } from "@/pages/home/style";
 import { userData } from "@/utils/userData";
 import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 import { Button } from "@/styles/Buttons";
+import pedroBanner from "@/public/static/img/logo/pedro_banner.png";
 // import { HandEffect } from "../HandEffect";
 
 export const Footer = (): JSX.Element => {
@@ -13,11 +14,15 @@ export const Footer = (): JSX.Element => {
       <Container>
         <Flex>
           <UserImage
-            src={`https://github.com/${userData.githubUser}.png`}
+            // src={`https://github.com/${userData.githubUser}.png`}
+            src={`${pedroBanner}`}
             alt={userData.nameUser}
             title={userData.nameUser}
             width={"70px"}
             height={"70px"}
+            css={{
+              objectFit: "cover",
+            }}
           />
           <Box css={{ marginLeft: "$2" }}>
             <Text type="heading4" color="grey5" css={{ marginBottom: "$2" }}>
