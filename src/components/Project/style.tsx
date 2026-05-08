@@ -62,7 +62,7 @@ export const Project = styled("article", {
     transform: "translateY(-8px)",
     borderColor: "rgba(255, 255, 255, 0.1)",
     boxShadow: "0 20px 40px -20px rgba(0, 0, 0, 0.5)",
-    
+
     [`& ${ProjectTitle}`]: {
       color: "$brand1",
     }
@@ -87,8 +87,6 @@ export const Project = styled("article", {
   [`&:first-child`]: {
     [`& ${ProjectTitle}:first-child`]: {
       position: "relative",
-      width: "max-content",
-
       "@mobile": {
         width: "auto",
       },
@@ -97,7 +95,7 @@ export const Project = styled("article", {
         content: '"New"',
         position: "absolute",
         top: "-5px",
-        right: "-4rem",
+        right: "0",
         width: "max-content",
         height: "22px",
         backgroundColor: "$brand1",
@@ -112,9 +110,7 @@ export const Project = styled("article", {
         fontFamily: "Inter",
 
         "@mobile": {
-          left: 0,
-          top: "-2rem",
-          right: "auto",
+          right: "-1rem",
         },
       },
     },
