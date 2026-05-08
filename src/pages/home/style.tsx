@@ -31,7 +31,7 @@ const scroll = keyframes({
 
 export const Header = styled("header", {
   backgroundColor: "$grey1",
-  padding: "12rem 0 8rem 0",
+  padding: "10rem 0 8rem 0",
   // backgroundImage: `url(${backgroundImg})`,
   backgroundRepeat: "no-repeat",
   backgroundPosition: "right",
@@ -122,12 +122,10 @@ export const UserImageHero = styled("img", {
     height: "22rem",
   },
   "@mobile": {
-    width: "18rem",
     height: "18rem",
     borderRadius: "1.5rem",
   },
   "@mobileLittle": {
-    width: "14rem",
     height: "14rem",
   },
 });
