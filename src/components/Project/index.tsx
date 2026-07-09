@@ -1,6 +1,7 @@
 import {
   Project as ProjectWrapper,
   ProjectTitle,
+  ProjectNewBadge,
   ProjectStack,
   ProjectStackTech,
   ProjectLink,
@@ -12,15 +13,28 @@ import { useEffect, useState } from "react";
 import { FaGithub, FaShare } from "react-icons/fa";
 import { userData } from "@/utils/userData";
 import { motion } from "framer-motion";
+import { languageData } from "@/utils/languageData";
 
 interface ReposType {
   id: number;
   name: string;
+  created_at: string;
   language: string;
   description: string;
   html_url: string;
   homepage: string;
+  topics: string[];
 }
+
+const NEW_TAG_DAYS = 90;
+
+const isRecentlyUpdated = (created_at: string): boolean => {
+  const createdDate = new Date(created_at);
+  const daysSinceUpdate =
+    (Date.now() - createdDate.getTime()) / (1000 * 60 * 60 * 24);
+
+  return daysSinceUpdate <= NEW_TAG_DAYS;
+};
 
 export const Project = (): JSX.Element => {
   const [repositories, setRepositories] = useState<ReposType[]>([]);
@@ -53,14 +67,21 @@ export const Project = (): JSX.Element => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             style={{ display: "flex", width: "100%" }}
           >
-            <ProjectWrapper style={{ width: "100%" }}>
+            <ProjectWrapper style={{ width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <ProjectTitle
                 as="h2"
                 type="heading3"
-                css={{ marginBottom: "$3" }}
+                css={{
+                  marginBottom: "$1",
+                  position: "relative",
+                  "@mobile": { width: "auto" },
+                }}
                 color="grey4"
               >
                 {repository.name}
+                {isRecentlyUpdated(repository.created_at) && (
+                  <ProjectNewBadge>New</ProjectNewBadge>
+                )}
               </ProjectTitle>
 
               <ProjectStack>
@@ -86,17 +107,34 @@ export const Project = (): JSX.Element => {
                 {repository.description}
               </Text>
               <ProjectLinks>
-                <ProjectLink target="_blank" href={repository.html_url}>
+                <ProjectLink target="_blank" href={repository.html_url}  style={{ width: '100%' }}>
                   <FaGithub /> Github Code
                 </ProjectLink>
                 {repository.homepage && (
                   <ProjectLink
                     target="_blank"
                     href={repository.homepage}
+                    style={{ width: '100%' }}
                   >
                     <FaShare /> See demo
                   </ProjectLink>
                 )}
+                <motion.div 
+                  key={repository.id}
+                  style={{ display: "flex", width: "100%", justifyContent: 'end',gap: '12px' }}
+                >
+                  {repository.topics.map((topic) => {
+                    const Icon = languageData.find(
+                      (item) => item.title === topic.toLowerCase()
+                    )?.img;
+
+                    return Icon ? (
+                      <span key={topic} style={{ textAlign: 'end'}}>
+                        <Icon size={28} color="#868E96" />
+                      </span>
+                    ) : null;
+                  })}
+                </motion.div>
               </ProjectLinks>
             </ProjectWrapper>
           </motion.div>

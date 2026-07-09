@@ -13,6 +13,7 @@ import "./styles.css"
 
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { TbFileDownload } from "react-icons/tb";
 import { Button } from "@/styles/Buttons";
 import { Container, Flex } from "@/styles/Global";
 import { motion } from "framer-motion";
@@ -80,6 +81,14 @@ export const NavLinks = (): JSX.Element => {
       </a>
       <a className="btn" href={`#social-media`}>
         Social Media
+      </a>
+      <a
+        className="btn"
+        href="/Pedro_Castro_Curriculo.pdf"
+        download
+        style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+      >
+        Curriculum <TbFileDownload size={24} />
       </a>
     </NavbarLinks>
   );

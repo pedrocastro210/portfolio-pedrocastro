@@ -45,6 +45,28 @@ export const ProjectTitle = styled(Text, {
   transition: "color 0.2s ease",
 });
 
+export const ProjectNewBadge = styled("span", {
+  position: "absolute",
+  top: "-5px",
+  right: "0",
+  width: "max-content",
+  height: "22px",
+  backgroundColor: "$brand1",
+  padding: "0px 8px",
+  borderRadius: "4px",
+  fontSize: "12px",
+  color: "white",
+  fontWeight: "600",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontFamily: "Inter",
+
+  "@mobile": {
+    right: "-1rem",
+  },
+});
+
 export const Project = styled("article", {
   marginTop: "0", // Handled by grid gap in ProjectsAreaContent
   padding: "2.5rem",
@@ -82,37 +104,5 @@ export const Project = styled("article", {
 
   "&:hover::before": {
     transform: "translateX(100%)",
-  },
-
-  [`&:first-child`]: {
-    [`& ${ProjectTitle}:first-child`]: {
-      position: "relative",
-      "@mobile": {
-        width: "auto",
-      },
-
-      "&::after": { // Changed from before to after to not clash with title
-        content: '"New"',
-        position: "absolute",
-        top: "-5px",
-        right: "0",
-        width: "max-content",
-        height: "22px",
-        backgroundColor: "$brand1",
-        padding: "0px 8px",
-        borderRadius: "4px",
-        fontSize: "12px",
-        color: "white",
-        fontWeight: "600",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontFamily: "Inter",
-
-        "@mobile": {
-          right: "-1rem",
-        },
-      },
-    },
   },
 });
